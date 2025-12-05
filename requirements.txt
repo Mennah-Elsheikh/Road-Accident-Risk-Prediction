@@ -1,25 +1,25 @@
 # Core dependencies
-fastapi==0.104.1
-uvicorn[standard]==0.24.0
-pydantic==2.5.0
-streamlit==1.28.2
+fastapi>=0.104.1
+uvicorn[standard]>=0.24.0
+pydantic>=2.5.0
+streamlit>=1.28.2
 
 # Data processing
-pandas==2.1.3
-numpy==1.26.2
+pandas>=2.1.3
+numpy>=1.26.2
 
 # Machine Learning
-scikit-learn==1.3.2
-xgboost==2.0.2
-lightgbm==4.1.0
-catboost==1.2.2
-joblib==1.3.2
+scikit-learn>=1.3.2
+xgboost>=2.0.2
+lightgbm>=4.1.0
+catboost>=1.2.2
+joblib>=1.3.2
 
 # Visualization
-plotly==5.18.0
-matplotlib==3.8.2
-seaborn==0.13.0
+plotly>=5.18.0
+matplotlib>=3.8.2
+seaborn>=0.13.0
 
 # HTTP requests (for API testing)
-requests==2.31.0
-httpx==0.25.2
+requests>=2.31.0
+httpx>=0.25.2
