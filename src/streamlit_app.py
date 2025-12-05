@@ -51,12 +51,20 @@ st.markdown("""
 @st.cache_resource
 def load_model():
     """Load the trained model"""
-    model_path = Path(__file__).parent / "best_model.joblib"
     try:
+        # Get absolute path to the model
+        current_dir = Path(__file__).resolve().parent
+        project_root = current_dir.parent
+        model_path = project_root / "models" / "best_model.joblib"
+        
+        # Debug info
+        print(f"DEBUG: Model path: {model_path}")
+        print(f"DEBUG: Exists: {model_path.exists()}")
+        
         model = joblib.load(model_path)
         return model, None
     except Exception as e:
-        return None, str(e)
+        return None, f"Error loading model from {model_path}: {str(e)}"
 
 
 def encode_categorical_features(df: pd.DataFrame) -> pd.DataFrame:

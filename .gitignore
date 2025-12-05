@@ -1,7 +1,7 @@
 .vscode
 __pycache__
-.venv
+venv
 .env
-.best_model.joblib
-.best_model.pkl
-.data/
+*.joblib
+*.pkl
+*.csv

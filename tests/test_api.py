@@ -1,16 +1,3 @@
-"""
-Test script for the Accident Risk Prediction API
-This script tests the API endpoints to ensure they're working correctly.
-"""
-
-import requests
-import json
-from typing import Dict, Any
-
-# API base URL
-BASE_URL = "http://localhost:8000"
-
-# Test data
 test_conditions = {
     "road_type": "urban",
     "num_lanes": 2,

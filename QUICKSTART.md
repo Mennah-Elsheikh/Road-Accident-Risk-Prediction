@@ -14,28 +14,6 @@ pip install -r requirements.txt
 ```bash
 streamlit run streamlit_app.py
 ```
-
-- Opens automatically in your browser at http://localhost:8501
-- Interactive UI with sliders and dropdowns
-- Visual risk gauge and recommendations
-- No coding required!
-
-### Option 2: FastAPI REST API
-
-```bash
-python api.py
-```
-
-- API available at http://localhost:8000
-- Interactive docs at http://localhost:8000/docs
-- Use for integration with other applications
-
-## Testing the API
-
-After starting the API server, run the test script in a new terminal:
-
-```bash
-python test_api.py
 ```
 
 ## Example API Usage

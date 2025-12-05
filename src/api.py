@@ -30,13 +30,30 @@ app.add_middleware(
 )
 
 # Load the trained model
-MODEL_PATH = Path(__file__).parent / "best_model.joblib"
 try:
+    # Get absolute path to the model
+    current_dir = Path(__file__).resolve().parent
+    project_root = current_dir.parent
+    MODEL_PATH = project_root / "models" / "best_model.joblib"
+    
+    print(f"DEBUG: Current directory: {current_dir}")
+    print(f"DEBUG: Project root: {project_root}")
+    print(f"DEBUG: Model path: {MODEL_PATH}")
+    print(f"DEBUG: Model file exists: {MODEL_PATH.exists()}")
+    
     model = joblib.load(MODEL_PATH)
     print(f"✓ Model loaded successfully from {MODEL_PATH}")
 except Exception as e:
-    print(f"✗ Error loading model: {e}")
-    model = None
+    print(f"❌ Error loading model: {e}")
+    # Try fallback to current directory just in case
+    try:
+        fallback_path = Path("best_model.joblib")
+        print(f"DEBUG: Trying fallback path: {fallback_path.resolve()}")
+        model = joblib.load(fallback_path)
+        print(f"✓ Model loaded from fallback path")
+    except Exception as e2:
+        print(f"❌ Fallback failed: {e2}")
+        model = None
 
 
 # Define request schema
