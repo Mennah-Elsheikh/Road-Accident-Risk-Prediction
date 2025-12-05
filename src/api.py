@@ -256,7 +256,7 @@ async def predict_accident_risk(conditions: RoadConditions):
     
     try:
         # Convert input to DataFrame
-        input_data = pd.DataFrame([conditions.dict()])
+        input_data = pd.DataFrame([conditions.model_dump()])
         
         # Encode categorical features
         input_data_encoded = encode_categorical_features(input_data)
@@ -303,7 +303,7 @@ async def predict_batch(conditions_list: list[RoadConditions]):
     
     try:
         # Convert all inputs to DataFrame
-        input_data = pd.DataFrame([c.dict() for c in conditions_list])
+        input_data = pd.DataFrame([c.model_dump() for c in conditions_list])
         
         # Encode categorical features
         input_data_encoded = encode_categorical_features(input_data)
