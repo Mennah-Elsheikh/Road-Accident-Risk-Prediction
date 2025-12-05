@@ -5,7 +5,7 @@ This API provides endpoints to predict accident risk based on road and environme
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from typing import Literal
 import joblib
 import pandas as pd
@@ -113,8 +113,8 @@ class RoadConditions(BaseModel):
         description="Number of previously reported accidents"
     )
 
-    class Config:
-        schema_extra = {
+    model_config = ConfigDict(
+        json_schema_extra={
             "example": {
                 "road_type": "urban",
                 "num_lanes": 2,
@@ -130,6 +130,7 @@ class RoadConditions(BaseModel):
                 "num_reported_accidents": 1
             }
         }
+    )
 
 
 # Define response schema
